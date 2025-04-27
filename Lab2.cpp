@@ -259,7 +259,7 @@ int main()
 	
 	PetlaSprzezeniaZwrotnego petla;
 
-
+	// Symulacja petli sprzezenia zwrotnego
 	int LICZBA_KROKOW = 100;
 	double wartoscZadana = 1.0; 
 	std::cout << "Symulacja petli sprezenia zwrotnego:\n";
