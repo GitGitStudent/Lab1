@@ -3,7 +3,7 @@
 #include <vector>
 #include <iomanip>
 
-#define DEBUG
+#define A
 
 #include "RegulatorPID.h"
 #include "ModelARX.h"

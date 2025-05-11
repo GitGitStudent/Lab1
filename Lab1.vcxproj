@@ -127,17 +127,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DekoratoryKonkretne.cpp" />
+    <ClCompile Include="DeserializedCalySygnal.cpp" />
+    <ClCompile Include="int.cpp" />
     <ClCompile Include="Lab1.cpp" />
     <ClCompile Include="Lab2.cpp" />
     <ClCompile Include="ModelARX.cpp" />
     <ClCompile Include="PetlaSprzezeniaZwrotnego.cpp" />
     <ClCompile Include="RegulatorPID.cpp" />
+    <ClCompile Include="SygnalBazowy.cpp" />
+    <ClCompile Include="SygnalKonkretny.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DekoratorSygnalu.h" />
+    <ClInclude Include="DeserializedCalySygnal.h" />
     <ClInclude Include="ModelARX.h" />
     <ClInclude Include="ObiektSISO.h" />
+    <ClInclude Include="DekoratoryKonkretne.h" />
     <ClInclude Include="PetlaSprzezeniaZwrotnego.h" />
     <ClInclude Include="RegulatorPID.h" />
+    <ClInclude Include="SygnalBazowy.h" />
+    <ClInclude Include="SygnalKonkretny.h" />
+    <ClInclude Include="Sygnal.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
