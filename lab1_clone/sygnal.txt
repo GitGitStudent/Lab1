@@ -1,0 +1,11 @@
+SygnalSinusoidalny
+amplituda=5
+czestotliwosc=10
+T=0.5
+SygnalTrojkatny
+amplituda=3
+okres=15
+SygnalBialySzum
+amplituda=2
+SygnalBazowy
+poziom=5

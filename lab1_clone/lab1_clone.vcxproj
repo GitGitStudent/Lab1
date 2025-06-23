@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{892a1397-ef17-4514-8c20-72065c590eb2}</ProjectGuid>
-    <RootNamespace>Lab1</RootNamespace>
+    <ProjectGuid>{efef2f11-1687-4ae8-b072-1c058dd92baa}</ProjectGuid>
+    <RootNamespace>lab1clone</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,28 +127,43 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="DekoratoryKonkretne.cpp" />
-    <ClCompile Include="DeserializedCalySygnal.cpp" />
-    <ClCompile Include="int.cpp" />
-    <ClCompile Include="Lab1.cpp" />
-    <ClCompile Include="Lab2.cpp" />
-    <ClCompile Include="ModelARX.cpp" />
-    <ClCompile Include="PetlaSprzezeniaZwrotnego.cpp" />
-    <ClCompile Include="RegulatorPID.cpp" />
-    <ClCompile Include="SygnalBazowy.cpp" />
-    <ClCompile Include="SygnalKonkretny.cpp" />
+    <None Include="..\.gitattributes" />
+    <None Include="..\.gitignore" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DekoratorSygnalu.h" />
-    <ClInclude Include="DeserializedCalySygnal.h" />
-    <ClInclude Include="ModelARX.h" />
-    <ClInclude Include="ObiektSISO.h" />
-    <ClInclude Include="DekoratoryKonkretne.h" />
-    <ClInclude Include="PetlaSprzezeniaZwrotnego.h" />
-    <ClInclude Include="RegulatorPID.h" />
-    <ClInclude Include="SygnalBazowy.h" />
-    <ClInclude Include="SygnalKonkretny.h" />
-    <ClInclude Include="Sygnal.h" />
+    <ClInclude Include="..\DekoratorSygnalu.h" />
+    <ClInclude Include="..\DekoratoryKonkretne.h" />
+    <ClInclude Include="..\DeserializedCalySygnal.h" />
+    <ClInclude Include="..\InterfejsUzytkownika.h" />
+    <ClInclude Include="..\ModelARX.h" />
+    <ClInclude Include="..\ObiektSISO.h" />
+    <ClInclude Include="..\PetlaRownolegla.h" />
+    <ClInclude Include="..\PetlaSprzezeniaZwrotnego.h" />
+    <ClInclude Include="..\PetlaSzeregowa.h" />
+    <ClInclude Include="..\PetlaUAR.h" />
+    <ClInclude Include="..\RegulatorPID.h" />
+    <ClInclude Include="..\Sygnal.h" />
+    <ClInclude Include="..\SygnalBazowy.h" />
+    <ClInclude Include="..\SygnalKonkretny.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\DekoratoryKonkretne.cpp" />
+    <ClCompile Include="..\DeserializedCalySygnal.cpp" />
+    <ClCompile Include="..\int.cpp" />
+    <ClCompile Include="..\InterfejsUzytkownika.cpp" />
+    <ClCompile Include="..\Lab1.cpp" />
+    <ClCompile Include="..\Lab2.cpp" />
+    <ClCompile Include="..\ModelARX.cpp" />
+    <ClCompile Include="..\PetlaRownolegla.cpp" />
+    <ClCompile Include="..\PetlaSprzezeniaZwrotnego.cpp" />
+    <ClCompile Include="..\PetlaSzeregowa.cpp" />
+    <ClCompile Include="..\RegulatorPID.cpp" />
+    <ClCompile Include="..\SygnalBazowy.cpp" />
+    <ClCompile Include="..\SygnalKonkretny.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\model_data.txt" />
+    <Text Include="..\sygnal.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

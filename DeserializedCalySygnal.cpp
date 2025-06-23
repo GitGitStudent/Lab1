@@ -2,68 +2,75 @@
 #include "iostream"
 Sygnal* deserializeCalySygnal(std::ifstream& in) {
     std::string line;
+    std::vector<std::string> lines;
+
+    // Wczytaj wszystkie linie do wektora
+    while (std::getline(in, line)) {
+        if (line == "END") break;
+        lines.push_back(line);
+    }
+
     Sygnal* sygnal = nullptr;
 
-    // Bazowy
-    while (std::getline(in, line)) {
-        if (line == "SygnalBazowy") {
-            double poziom;
-            std::getline(in, line); // "poziom=2.5"
-            poziom = std::stod(line.substr(7));
+    // 1. ZnajdŸ i utwórz sygna³ bazowy
+    for (size_t i = 0; i < lines.size(); ++i) {
+        if (lines[i] == "SygnalBazowy") {
+            double poziom = std::stod(lines[i + 1].substr(7));
             sygnal = new SygnalBazowy(poziom);
-           
             break;
         }
     }
-    in.clear(); 
-    in.seekg(0); 
-    // Dekoratory
-    while (std::getline(in, line)) {
-        
-        if (line == "SygnalTrojkatny") {
-            double a, o;
-            std::getline(in, line); // amplituda
-            a = std::stod(line.substr(10));
-            std::getline(in, line); // okres
-            o = std::stod(line.substr(6));
+    if (!sygnal) return nullptr;
+
+    // 2. Nak³adaj dekoratory w ustalonej kolejnoœci, jeœli wystêpuj¹ w pliku
+
+    // Trojkatny
+    for (size_t i = 0; i < lines.size(); ++i) {
+        if (lines[i] == "SygnalTrojkatny") {
+            double a = std::stod(lines[i + 1].substr(10));
+            double o = std::stod(lines[i + 2].substr(6));
             sygnal = new SygnalTrojkatny(sygnal, a, o);
-            
+            break;
         }
-        else if (line == "SygnalProstokatny") {
-            double a, o, w;
-            std::getline(in, line); // amplituda
-            a = std::stod(line.substr(10));
-            std::getline(in, line); // okres
-            o = std::stod(line.substr(6));
-            std::getline(in, line); // wypelnienie
-            w = std::stod(line.substr(12));
+    }
+    // Prostokatny
+    for (size_t i = 0; i < lines.size(); ++i) {
+        if (lines[i] == "SygnalProstokatny") {
+            double a = std::stod(lines[i + 1].substr(10));
+            double o = std::stod(lines[i + 2].substr(6));
+            double w = std::stod(lines[i + 3].substr(12));
             sygnal = new SygnalProstokatny(sygnal, a, o, w);
+            break;
         }
-        else if (line == "OgraniczenieAmplitudy") {
-            std::getline(in, line); // maksAmplituda
-            double m = std::stod(line.substr(14));
+    }
+    // OgraniczenieAmplitudy
+    for (size_t i = 0; i < lines.size(); ++i) {
+        if (lines[i] == "OgraniczenieAmplitudy") {
+            double m = std::stod(lines[i + 1].substr(14));
             sygnal = new OgraniczenieAmplitudy(sygnal, m);
+            break;
         }
-		else if (line == "SygnalSinusoidalny") {
-			double a, o, t;
-			std::getline(in, line); // amplituda
-			a = std::stod(line.substr(10));
-			std::getline(in, line); // czestotliwosc
-			o = std::stod(line.substr(14));
-			std::getline(in, line); // T
-			t = std::stod(line.substr(2));
-			sygnal = new SygnalSinusoidalny(sygnal, a, o, t);
-		}
-		else if (line == "SygnalBialySzum") {
-			double a;
-			std::getline(in, line); // amplituda
-			a = std::stod(line.substr(10));
-			sygnal = new SygnalBialySzum(sygnal, a);
-		}
-        else if (line == "END") {
+    }
+    // Sinusoidalny
+    for (size_t i = 0; i < lines.size(); ++i) {
+        if (lines[i] == "SygnalSinusoidalny") {
+            double a = std::stod(lines[i + 1].substr(10));
+            double o = std::stod(lines[i + 2].substr(14));
+            double t = std::stod(lines[i + 3].substr(2));
+            sygnal = new SygnalSinusoidalny(sygnal, a, o, t);
+            break;
+        }
+    }
+    // Szum
+    for (size_t i = 0; i < lines.size(); ++i) {
+        if (lines[i] == "SygnalBialySzum") {
+            double a = std::stod(lines[i + 1].substr(10));
+            sygnal = new SygnalBialySzum(sygnal, a);
             break;
         }
     }
 
     return sygnal;
 }
+
+

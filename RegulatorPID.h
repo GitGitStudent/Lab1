@@ -2,7 +2,8 @@
 #define REGULATORPID_H
 
 #include "ObiektSISO.h"
-
+#include <sstream>
+#include <iostream>
 /**
  * @brief Klasa reprezentujaca regulator PID.
  *
@@ -101,6 +102,26 @@ public:
      * @return true jesli wartosc jest dodatnia, false w przeciwnym wypadku.
      */
     bool czyWartoscDodatnia(double wartosc);
+    
+    /**
+    * @brief Zapisuje dane obiektu RegulatorPID do strumienia wyjœciowego.
+    *
+    * Funkcja umo¿liwia serializacjê obiektu, zapisuj¹c wartoœci parametrów PID
+    * oraz stan wewnêtrzny (suma uchybów i poprzedni uchyb) do podanego strumienia.
+    *
+    * @param out Strumieñ wyjœciowy, do którego zostan¹ zapisane dane.
+    */
+    void serialize(std::ostream& out) const;
+
+    /**
+     * @brief Tworzy nowy obiekt RegulatorPID na podstawie danych ze strumienia wejœciowego.
+     *
+     * Funkcja deserializuje dane z podanego strumienia i zwraca wskaŸnik do nowo utworzonego obiektu.
+     *
+     * @param in Strumieñ wejœciowy zawieraj¹cy dane obiektu PID.
+     * @return WskaŸnik do obiektu RegulatorPID utworzonego na podstawie danych ze strumienia.
+     */
+    static std::shared_ptr<RegulatorPID> deserialize(std::istream& in);
 };
 
 #endif // REGULATORPID_H

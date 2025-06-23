@@ -1,4 +1,4 @@
-﻿#ifndef MODELARX_H
+﻿  #ifndef MODELARX_H
 #define MODELARX_H
 
 #include "ObiektSISO.h"
@@ -70,8 +70,18 @@ public:
      *
      * @param filePath Sciezka do pliku z zapisanym modelem.
      */
-    ModelARX(const std::string& filePath);
+    ModelARX(std::istream& in);
 
+    /**
+    * @brief Deserializuje obiekt ModelARX ze strumienia wejściowego.
+     *
+    * Tworzy nowy obiekt typu ModelARX na podstawie danych zapisanych w strumieniu,
+    * takich jak parametry modelu czy liczba opóźnień.
+    *
+    * @param in Strumień wejściowy zawierający dane obiektu ModelARX.
+    * @return Wskaźnik do nowo utworzonego obiektu ModelARX.
+    */
+    static std::shared_ptr<ModelARX> deserialize(std::istream& in);
     /**
      * @brief Destruktor zwalniajacy zasoby.
      */
@@ -90,7 +100,9 @@ public:
      *
      * @param filePath Sciezka do pliku, do ktorego zostanie zapisany model.
      */
-    void serialize(const std::string& filePath) const;
+    void serialize(std::ofstream& out) const;
+
+    
 };
 
 #endif // MODELARX_H

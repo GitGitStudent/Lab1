@@ -1,8 +1,8 @@
 #include "DekoratoryKonkretne.h"
 
 // Dekorator ograniczaj¹cy amplitudê
-OgraniczenieAmplitudy::OgraniczenieAmplitudy(Sygnal* komonent ,double maksAmplituda)
-    :  komponent(komponent), maksAmplituda(maksAmplituda) {
+OgraniczenieAmplitudy::OgraniczenieAmplitudy(Sygnal* komponent ,double maksAmplituda)
+    : komponent(komponent), maksAmplituda(maksAmplituda) {
 }
 
 double OgraniczenieAmplitudy::symuluj(int n) {

@@ -1,0 +1,15 @@
+SygnalTrojkatny
+amplituda=2
+okres=4
+SygnalBazowy
+poziom=2
+END_SYGNAL
+wspA=-0.4 0.2 
+wspB=0.6 0.3 
+opoznienie=0
+mocZaklocenia=0
+END_MODEL
+k=0.5
+Ti=10
+Td=0.1
+END_PID

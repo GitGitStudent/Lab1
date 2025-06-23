@@ -1,0 +1,8 @@
+SygnalBazowy
+poziom=2
+END_SYGNAL
+wspA=1 
+wspB=1 
+opoznienie=1
+mocZaklocenia=1
+END_MODEL
